@@ -3,12 +3,16 @@ import java.util.Scanner;
 public class ThirdTask{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.print("a: ");
         double a = sc.nextDouble();
+        System.out.print("b: ");
         double b = sc.nextDouble();
+        System.out.print("c: ");
         double c = sc.nextDouble();
         sc.close();
 
         double discriminant = b*b - 4 * a * c;
+        
         if(discriminant < 0){
             System.out.println("Az egyenletnek nincs valós megoldása");
         }
