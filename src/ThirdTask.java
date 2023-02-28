@@ -23,5 +23,7 @@ public class ThirdTask{
             solutionTwo /= 2*a;
             System.out.println("Eredmények:\n" + solutionOne + "\n" + solutionTwo);
         }
+
+        
     }
 }
