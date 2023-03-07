@@ -11,7 +11,7 @@ public class FourthTask {
 
         //Első alkalommal semmi változtatás nem történik, kiírja az eredeti értékeket.
         outTwo(numberOne, numberTwo);
-        //Itt fogja a 2 értéket, lemásolja, és azzal kezd valamit, kiírja a negatív értéküket.
+        //Itt fogja a 2 értéket, lemásolja, és a lemasoltal kezd valamit, kiírja a negatív értéküket.
         preTwo(numberOne, numberTwo);
         //Végül kiírja újra az alap változóinkat változatlanul. 
         outTwo(numberOne, numberTwo);
