@@ -10,7 +10,7 @@ public class FifthTask {
     public static void arrayPosition(int[] array) {
         for (int i = 0; i < array.length; i++) {
             if (array[i] < 0){
-                // itt nem immutable objektiumokkal dolgozunk
+                // itt mutable objektiumokkal dolgozunk
                 array[i] = Math.abs(array[i]);
             }
         }
