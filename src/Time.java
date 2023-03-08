@@ -67,10 +67,10 @@ public class Time {
         int newHours = this.getHours() - time.getHours();
         int newMinutes = this.getMins() - time.getMins();
         if (newHours < 0){
-            newHours = 24 + newHours;
+            newHours += 24;
         }
         if (newMinutes < 0) {
-            newMinutes = 60 + newMinutes;
+            newMinutes += 60;
             newHours--;
         }
         return new Time(newHours, newMinutes);
@@ -81,7 +81,12 @@ public class Time {
     }
     
     public void addHours(int hours){
-        this.min += hours * 60;
+        if (this.min > 23 * 60 + 59){
+            this.min -= 23 * 60 + 59;
+        }
+        else {
+            this.min += hours * 60;
+        }
     }
 
     public boolean greaterThan(Time time){
