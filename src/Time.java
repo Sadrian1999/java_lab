@@ -1,6 +1,7 @@
 
 public class Time {
     private int min;
+    static int MAX_TIME = 23 * 60 + 59;
 
     // Constructors
     public Time(int hours, int minutes) {
@@ -77,16 +78,17 @@ public class Time {
     }
 
     public void addMins(int minutes){
-        this.min += minutes;
+        if (this.min + minutes > 23 * 60 + 59){
+            this.min -= 23 * 60 + 59;
+            this.min += minutes;
+        }
+        else {
+            this.min += minutes;
+        }
     }
     
     public void addHours(int hours){
-        if (this.min > 23 * 60 + 59){
-            this.min -= 23 * 60 + 59;
-        }
-        else {
-            this.min += hours * 60;
-        }
+        this. min = this.min + 60 * hours % MAX_TIME;
     }
 
     public boolean greaterThan(Time time){
@@ -108,7 +110,7 @@ public class Time {
     }
     public static void main(String[] args) {
         Time a = new Time(12, 32);
-        Time b = new Time(12, 30);
-        System.out.println(a.compareTo(b));
+        a.addHours(22331);
+        System.out.println(a.toString());
     }
 }
