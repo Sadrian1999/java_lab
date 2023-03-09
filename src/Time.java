@@ -88,7 +88,7 @@ public class Time {
     }
     
     public void addHours(int hours){
-        this. min = this.min + 60 * hours % MAX_TIME;
+        this. min = (this.min + 60 * hours) % MAX_TIME;
     }
 
     public boolean greaterThan(Time time){
@@ -110,7 +110,7 @@ public class Time {
     }
     public static void main(String[] args) {
         Time a = new Time(12, 32);
-        a.addHours(22331);
+        a.addHours(1);
         System.out.println(a.toString());
     }
 }
