@@ -1,25 +1,25 @@
 
 public class Time {
     private int min;
-    static int MAX_TIME = 23 * 60 + 59;
+    private static int MAX_TIME = 24 * 60;
 
     // Constructors
     public Time(int hours, int minutes) {
         if (hours > 23 || minutes > 59 || hours < 0 || minutes < 0) {
             throw new IllegalArgumentException("Nem lehet 23:59-nél nagyobb vagy negatív");
         }
-        this.min = hours * 60 + minutes;
+        min = hours * 60 + minutes;
     }
 
     public Time(){
-        this.min = 0;
+        min = 0;
     }
 
     public Time(int hours){
         if (hours > 23 || hours < 0) {
             throw new IllegalArgumentException("Nem lehet 23:59-nél nagyobb");
         }
-        this.min = hours * 60;
+        min = hours * 60;
     }
     
     // Getter, Setter
@@ -37,23 +37,23 @@ public class Time {
 
     // Methods
     public String toString(){
-        if (this.getHours() < 10 && this.getMins() < 10) {
-            return "0" + this.getHours() + ":0" + this.getMins();
+        if (getHours() < 10 && getMins() < 10) {
+            return "0" + getHours() + ":0" + getMins();
         } 
-        else if (this.getMins() < 10) {
-            return this.getHours() + ":0" + this.getMins();
+        else if (getMins() < 10) {
+            return getHours() + ":0" + getMins();
         }
-        else if (this.getHours() < 10) {
-            return "0" + this.getHours() + ":" + this.getMins();
+        else if (getHours() < 10) {
+            return "0" + getHours() + ":" + getMins();
         } 
         else {
-            return this.getHours() + ":" + this.getMins();
+            return getHours() + ":" + getMins();
         }
     }
 
     public Time add(Time time){
-        int newHours = this.getHours() + time.getHours();
-        int newMinutes = this.getMins() + time.getMins();
+        int newHours = getHours() + time.getHours();
+        int newMinutes = getMins() + time.getMins();
         if (newHours > 23) {
             newHours -= 24;
         }
@@ -65,38 +65,32 @@ public class Time {
     }
 
     public Time subtract(Time time){
-        int newHours = this.getHours() - time.getHours();
-        int newMinutes = this.getMins() - time.getMins();
+        int newHours = getHours() - time.getHours();
+        int newMinutes = getMins() - time.getMins();
         if (newHours < 0){
-            newHours += 24;
+            newHours = 24 + newHours;
         }
         if (newMinutes < 0) {
-            newMinutes += 60;
+            newMinutes = 60 + newMinutes;
             newHours--;
         }
         return new Time(newHours, newMinutes);
     }
 
     public void addMins(int minutes){
-        if (this.min + minutes > 23 * 60 + 59){
-            this.min -= 23 * 60 + 59;
-            this.min += minutes;
-        }
-        else {
-            this.min += minutes;
-        }
+         min = (min + minutes) % MAX_TIME;
     }
     
     public void addHours(int hours){
-        this. min = (this.min + 60 * hours) % MAX_TIME;
+         min = (min + 60 * hours) % MAX_TIME;
     }
 
     public boolean greaterThan(Time time){
-        return (time.getMinsOnly() < this.getMinsOnly()) ? true: false;
+        return (time.getMinsOnly() < getMinsOnly()) ? true: false;
     }
 
     public boolean lessThan(Time time){
-        return (time.getMinsOnly() > this.getMinsOnly()) ? true: false;
+        return (time.getMinsOnly() > getMinsOnly()) ? true: false;
     }
 
     public int compareTo(Time time){
@@ -109,8 +103,8 @@ public class Time {
         return 0;
     }
     public static void main(String[] args) {
-        Time a = new Time(12, 32);
-        a.addHours(1);
+        Time a = new Time(12, 5);
+        a = a.subtract(new Time(1, 0));
         System.out.println(a.toString());
     }
 }
