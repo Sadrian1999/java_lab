@@ -4,7 +4,7 @@ public class Time {
     private static int MAX_TIME = 24 * 60;
 
     // Constructors
-    public Time(int hours, int minutes) {
+    public Time(int hours, int minutes) throws IllegalArgumentException{
         if (hours > 23 || minutes > 59 || hours < 0 || minutes < 0) {
             throw new IllegalArgumentException("Nem lehet 23:59-nél nagyobb vagy negatív");
         }
@@ -15,7 +15,7 @@ public class Time {
         min = 0;
     }
 
-    public Time(int hours){
+    public Time(int hours) throws IllegalArgumentException{
         if (hours > 23 || hours < 0) {
             throw new IllegalArgumentException("Nem lehet 23:59-nél nagyobb");
         }

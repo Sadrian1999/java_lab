@@ -12,7 +12,7 @@ public class Fraction {
         this.denumerator = 1;
     }
 
-    public Fraction(int numerator, int denumerator) {
+    public Fraction(int numerator, int denumerator) throws ArithmeticException{
         this.numerator = numerator;
         if (denumerator == 0) { throw new ArithmeticException("Nem lehet 0-val osztani!"); }
         else { this.denumerator = denumerator; }
@@ -97,7 +97,7 @@ public class Fraction {
     public static void main(String[] args) {
         Fraction a = new Fraction(1, 12);
         Fraction b = new Fraction(1, 12);
-        Fraction c = a.multiply(b).simplify();
+        //Fraction c = a.multiply(b).simplify();
         System.out.println(a.numerator + "\n" + a.denumerator);
         System.out.println(b.numerator + "\n" + b.denumerator);
         System.out.println(a.compareTo(b));
