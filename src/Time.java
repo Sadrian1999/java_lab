@@ -105,6 +105,6 @@ public class Time {
     public static void main(String[] args) {
         Time a = new Time(12, 5);
         a = a.subtract(new Time(1, 0));
-        System.out.println(a.toString());
+        System.out.println(a);
     }
 }
