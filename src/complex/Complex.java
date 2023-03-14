@@ -34,7 +34,7 @@ public class Complex {
         return new Complex(this.realNumber + number.realNumber, this.imaginaryNumber + number.imaginaryNumber);
     }
 
-    public Complex mult(Complex number){
+    public Complex multiply(Complex number){
         double newR = this.realNumber * number.realNumber - this.imaginaryNumber * number.imaginaryNumber;
         double newI = this.realNumber * number.imaginaryNumber + this.imaginaryNumber * number.realNumber;
         return new Complex(newR, newI);
