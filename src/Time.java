@@ -22,7 +22,7 @@ public class Time {
         min = hours * 60;
     }
     
-    // Getter, Setter
+    // Getters
     public int getMins() {
         return min % 60;
     }
