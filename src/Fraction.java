@@ -82,6 +82,8 @@ public class Fraction {
     }
 
     public boolean lessThan(Fraction fraction){
+        fraction.numerator *= this.denumerator;
+        this.numerator *= fraction.denumerator;
         return (this.numerator < fraction.numerator) ? true: false;
     }
 
